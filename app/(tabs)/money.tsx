@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
-import { StyleSheet, Text, View, TextInput, TouchableOpacity, Alert } from 'react-native';
+import { StatusBar } from 'expo-status-bar';
+import { StyleSheet, Text, View, TextInput, TouchableOpacity, Alert, Platform } from 'react-native';
 
 const Money = () => {
   const [inputValue, setInputValue] = useState('');
@@ -155,6 +156,7 @@ const Money = () => {
 
   return (
     <View style={styles.container}>
+      <StatusBar style={Platform.OS === 'ios' ? 'light' : 'auto'} />
       <TextInput
         style={styles.input}
         keyboardType="numeric"

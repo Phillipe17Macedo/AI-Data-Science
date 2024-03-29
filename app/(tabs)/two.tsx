@@ -1,9 +1,11 @@
-import { StyleSheet, Text, View, ScrollView, SafeAreaView, Image } from 'react-native';
+import { StatusBar } from 'expo-status-bar';
+import { StyleSheet, Text, View, ScrollView, SafeAreaView, Image, Platform } from 'react-native';
 
 export default function Graficos() {
   return (
     <SafeAreaView style={styles.container}>
       <ScrollView>
+        <StatusBar style={Platform.OS === 'ios' ? 'light' : 'auto'} />
         <View>
           <Text style={styles.textFunc}>Função 1° Grau</Text>
           <Image source={require('app/img/func-1.png')} style={styles.imagem}/>
