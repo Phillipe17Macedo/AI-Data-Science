@@ -13,7 +13,22 @@ export default function TabLayout() {
   return (
     <Tabs
       screenOptions={{
-        tabBarActiveTintColor: 'black',
+        tabBarActiveTintColor: '#84B026',
+        tabBarInactiveTintColor: '#fff',
+        tabBarShowLabel: true,
+        tabBarStyle:{
+          position: 'absolute',
+          backgroundColor: '#282A36',
+          borderTopWidth: 0,
+          bottom: 15,
+          left: 15,
+          right: 15,
+          elevation: 0,
+          borderRadius: 15,
+          height: 70,
+          paddingBottom: 10,
+        },
+        tabBarLabelStyle: styles.tabBarLabel,
       }}>
       <Tabs.Screen
         name="index"
@@ -39,7 +54,7 @@ export default function TabLayout() {
       <Tabs.Screen
         name="two"
         options={{
-          title: 'Tab Two',
+          title: 'Gráficos',
           tabBarIcon: ({ color }) => <TabBarIcon name="code" color={color} />,
         }}
       />
@@ -53,5 +68,9 @@ const styles = StyleSheet.create({
   },
   tabBarIcon: {
     marginBottom: -3,
+  },
+  tabBarLabel: {
+    fontSize: 12,
+    fontWeight: 'bold',
   },
 });

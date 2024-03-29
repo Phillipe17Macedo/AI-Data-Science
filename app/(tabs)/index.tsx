@@ -1,9 +1,16 @@
 import React, { useState } from 'react';
 import { StyleSheet, Text, View, TextInput, TouchableOpacity, Alert } from 'react-native';
 
-const TabOneScreen = () => {
+const Funcoes = () => {
   const [inputValue, setInputValue] = useState('');
   const [resultados, setResultados] = useState<string[]>([]);
+
+  const primeiroGrau = (x: number) => {
+    const a = 10.4425;
+    const b = -1.0496013;
+    // eslint-disable-next-line prettier/prettier
+    return (a * x) + b;
+  };
 
   const segundoGrau = (x: number) => {
     const a = 0.0136;
@@ -123,15 +130,16 @@ const TabOneScreen = () => {
     const x = parseFloat(inputValue);
 
     setResultados([
-      `2° grau: ${segundoGrau(x)}`,
-      `3° grau: ${terceiroGrau(x)}`,
-      `4° grau: ${quartoGrau(x)}`,
-      `5° grau: ${quintoGrau(x)}`,
-      `6° grau: ${sextoGrau(x)}`,
-      `7° grau: ${setimoGrau(x)}`,
-      `8° grau: ${oitavoGrau(x)}`,
-      `9° grau: ${nonoGrau(x)}`,
-      `10° grau: ${decimoGrau(x)}`,
+      `1° Grau: ${primeiroGrau(x)}`,
+      `2° Grau: ${segundoGrau(x)}`,
+      `3° Grau: ${terceiroGrau(x)}`,
+      `4° Grau: ${quartoGrau(x)}`,
+      `5° Grau: ${quintoGrau(x)}`,
+      `6° Grau: ${sextoGrau(x)}`,
+      `7° Grau: ${setimoGrau(x)}`,
+      `8° Grau: ${oitavoGrau(x)}`,
+      `9° Grau: ${nonoGrau(x)}`,
+      `10° Grau: ${decimoGrau(x)}`,
     ]);
   };
 
@@ -186,4 +194,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default TabOneScreen;
+export default Funcoes;
