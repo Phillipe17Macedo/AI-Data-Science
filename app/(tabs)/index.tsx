@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View, TextInput, TouchableOpacity, Alert, Platform } from 'react-native';
+import { StyleSheet, Text, View, TextInput, TouchableOpacity, Alert, ScrollView, SafeAreaView, Platform } from 'react-native';
 
 const Funcoes = () => {
   const [inputValue, setInputValue] = useState('');
@@ -131,68 +131,116 @@ const Funcoes = () => {
     const x = parseFloat(inputValue);
 
     setResultados([
-      `1° Grau: ${primeiroGrau(x)}`,
-      `2° Grau: ${segundoGrau(x)}`,
-      `3° Grau: ${terceiroGrau(x)}`,
-      `4° Grau: ${quartoGrau(x)}`,
-      `5° Grau: ${quintoGrau(x)}`,
-      `6° Grau: ${sextoGrau(x)}`,
-      `7° Grau: ${setimoGrau(x)}`,
-      `8° Grau: ${oitavoGrau(x)}`,
-      `9° Grau: ${nonoGrau(x)}`,
-      `10° Grau: ${decimoGrau(x)}`,
+      `1° Grau: ${primeiroGrau(x).toFixed(3)}`,
+      `2° Grau: ${segundoGrau(x).toFixed(3)}`,
+      `3° Grau: ${terceiroGrau(x).toFixed(3)}`,
+      `4° Grau: ${quartoGrau(x).toFixed(3)}`,
+      `5° Grau: ${quintoGrau(x).toFixed(3)}`,
+      `6° Grau: ${sextoGrau(x).toFixed(3)}`,
+      `7° Grau: ${setimoGrau(x).toFixed(3)}`,
+      `8° Grau: ${oitavoGrau(x).toFixed(3)}`,
+      `9° Grau: ${nonoGrau(x).toFixed(3)}`,
+      `10° Grau: ${decimoGrau(x).toFixed(3)}`,
     ]);
   };
 
   return (
-    <View style={styles.container}>
-      <StatusBar style={Platform.OS === 'ios' ? 'light' : 'auto'} />
-      <TextInput
-        style={styles.input}
-        keyboardType="numeric"
-        placeholder="Digite um número"
-        value={inputValue}
-        onChangeText={setInputValue}
-      />
-      <TouchableOpacity style={styles.button} onPress={handleButtonPress}>
-        <Text style={styles.buttonText}>Calcular</Text>
-      </TouchableOpacity>
-      {resultados.map((resultado, index) => (
-        // eslint-disable-next-line prettier/prettier
-        <Text key={index} style={styles.resultado}>{resultado}</Text>
-      ))}
-    </View>
+    <SafeAreaView style={styles.container}>
+      <ScrollView>
+        <View>
+          <StatusBar style={Platform.OS === 'ios' ? 'light' : 'auto'} />
+          <View style={styles.containerDescribe}>
+            <Text style={styles.textDescribe}>
+              Digite um número que irá representar 
+              o número de Dias da Guerra Rússia x Ucrânia.
+            </Text>
+          </View>
+          <View style={styles.containerDescribe}>
+            <Text style={styles.textDescribe}>
+              O valor apresentado em cada Grau de Função
+              representa o número aproximado de Drones gastos nesta Guerra.
+            </Text>
+          </View>
+          <TextInput
+            style={styles.input}
+            keyboardType="numeric"
+            placeholder="Calcular Quantidade Gasta"
+            value={inputValue}
+            onChangeText={setInputValue}
+          />
+          <TouchableOpacity style={styles.button} onPress={handleButtonPress}>
+            <Text style={styles.buttonText}>Calcular</Text>
+          </TouchableOpacity>
+          {resultados.map((resultado, index) => (
+            // eslint-disable-next-line prettier/prettier
+            <Text key={index} style={styles.resultado}>{resultado}</Text>
+          ))}
+        </View>
+        <View style={styles.separator}/>
+        <View style={styles.separator}/>
+        <View style={styles.separator}/>
+      </ScrollView>
+    </SafeAreaView>
   );
 };
 
 const styles = StyleSheet.create({
   container: {
-    alignItems: 'center',
-    justifyContent: 'center',
     flex: 1,
+    backgroundColor: "#CACACA",
+  },
+  separator: {
+    height: 1,
+    marginVertical: 15,
+    width: '100%',
+  },
+  containerDescribe:{
+    alignSelf: 'center',
+    backgroundColor: "#282A36",
+    width:"90%",
+    alignItems: "center",
+    marginTop: 10,
+    padding: 10,
+    borderRadius: 20,
+  },
+  textDescribe:{
+    textAlign: "justify",
+    fontWeight: 'bold',
+    fontSize: 21,
+    color: "#fff",
   },
   input: {
+    alignSelf: 'center',
     width: '80%',
     height: 40,
-    borderWidth: 1,
-    borderColor: '#ccc',
-    borderRadius: 5,
+    marginTop: 20,
+    borderWidth: 4,
+    borderColor: '#173540',
+    borderRadius: 20,
     paddingHorizontal: 10,
-    marginBottom: 20,
+    marginBottom: 10,
+    backgroundColor: "#fff",
+    color: "#161F30",
+    fontWeight: "bold"
   },
   button: {
-    backgroundColor: 'blue',
+    alignSelf: 'center',
+    backgroundColor: '#84B026',
     padding: 10,
-    borderRadius: 5,
+    borderRadius: 20,
+    width: 90,
   },
   buttonText: {
-    color: 'white',
+    textAlign: "center",
+    color: '#fff',
     fontWeight: 'bold',
   },
   resultado: {
+    textAlign: 'center',
     marginTop: 10,
     fontSize: 16,
     fontWeight: 'bold',
+    color: '#202022',
   },
 });
 
