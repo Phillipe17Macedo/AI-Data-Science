@@ -1,8 +1,9 @@
 {
   "expo": {
-    "name": "DataScience",
+    "name": "Data Science",
     "slug": "DataScience",
     "version": "1.0.0",
+    "scheme": "datascience",
     "web": {
       "bundler": "metro",
       "output": "static",
