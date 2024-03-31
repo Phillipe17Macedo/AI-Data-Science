@@ -1,6 +1,6 @@
 {
-  "name": "DataScience",
-  "version": "1.0.0",
+  "name": "Data Science",
+  "version": "1.0.1",
   "scripts": {
     "android": "expo run:android",
     "format": "eslint \"**/*.{js,jsx,ts,tsx}\" --fix && prettier \"**/*.{js,jsx,ts,tsx,json}\" --write",

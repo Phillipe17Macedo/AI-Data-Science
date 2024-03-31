@@ -9,29 +9,31 @@ export default function Perfil() {
   return (
     <View style={styles.container}>
       <StatusBar style={Platform.OS === 'ios' ? 'light' : 'auto'} />
-      <Text style={styles.title}>Minhas Conexões</Text>
+      <Text style={styles.title}>MINHAS CONEXÕES</Text>
       <View style={styles.iconesLink}>
         <View style={styles.iconeContainer}>
           <Pressable onPress={() => abrirLink('https://github.com/Phillipe17Macedo')}>
             {({pressed}) => (
               <AntDesign
                 name="github"
-                size={48}
+                size={64}
+                color={"#84B026"}
               />
             )}
           </Pressable>
-          <Text style={styles.iconeText}>GitHub</Text>
+          <Text style={styles.iconeText}> GitHub </Text>
         </View>
         <View style={styles.iconeContainer}>
           <Pressable onPress={() => abrirLink('https://www.linkedin.com/in/phillipe-macedo-234524239?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app')}>
             {({pressed}) => (
               <AntDesign
                 name="linkedin-square"
-                size={48}
+                size={64}
+                color={"#84B026"}
               /> 
             )}
           </Pressable>
-          <Text style={styles.iconeText}>LinkedIn</Text>
+          <Text style={styles.iconeText}> LinkedIn </Text>
         </View>
       </View>
     </View>
@@ -42,22 +44,29 @@ const styles = StyleSheet.create({
   container: {
     alignItems: 'center',
     flex: 1,
+    backgroundColor: "#CACACA",
   },
   title: {
-    fontSize: 20,
+    fontSize: 25,
     fontWeight: 'bold',
-    marginBottom: '30%',
-    marginTop: '50%',
+    marginBottom: 70,
+    marginTop: 50,
   },
   iconesLink: {
     flexDirection: 'row',
     justifyContent: 'space-around',
     width: '80%',
+    backgroundColor: "#282A36",
+    padding: 15,
+    borderRadius: 20,
   },
   iconeContainer: {
     alignItems: 'center',
   },
   iconeText: {
     marginTop: 5,
+    fontWeight: "bold",
+    fontSize: 16,
+    color: "#fff",
   },
 });

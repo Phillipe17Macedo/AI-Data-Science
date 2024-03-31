@@ -6,6 +6,15 @@ export default function Graficos() {
     <SafeAreaView style={styles.container}>
       <ScrollView>
         <StatusBar style={Platform.OS === 'ios' ? 'light' : 'auto'} />
+        <View style={styles.containerTitle}>
+          <Text style={styles.title}>Gráficos gerados para cada cálculo de Função,
+            desde o 1° Grau ao 10° Grau.
+          </Text>
+        </View>
+        <View style={styles.containerTitle}>
+          <Text style={styles.title}>Função de 4° Grau foi a mais precisa.
+          </Text>
+        </View>
         <View>
           <Text style={styles.textFunc}>Função 1° Grau</Text>
           <Image source={require('app/img/func-1.png')} style={styles.imagem}/>
@@ -58,28 +67,41 @@ export default function Graficos() {
 
 const styles = StyleSheet.create({
   container: {
-    alignItems: 'center',
     flex: 1,
+    alignItems: 'center',
     justifyContent: 'center',
-    backgroundColor: '#3D3D3D',
+    backgroundColor: '#CACACA',
   },
   separator: {
     height: 1,
-    marginVertical: 10,
+    marginVertical: 15,
     width: '100%',
+  },
+  containerTitle: {
+    alignSelf: 'center',
+    marginTop: 15,
+    alignItems: "center",
+    backgroundColor: "#282A36",
+    borderRadius: 20,
+    width: "90%",
   },
   title: {
     fontSize: 20,
     fontWeight: 'bold',
+    color: '#fff',
+    padding: 10,
+    textAlign: "justify",
   },
   textFunc: {
     alignSelf: 'center',
     marginTop: 25,
-    color: 'white',
+    color: '#202022',
     fontWeight: 'bold',
-    fontSize: 21,
+    fontSize: 25,
   },
   imagem: {
+    borderWidth: 1,
+    borderColor: "#202022",
     alignSelf: 'center',
     marginTop: 30,
     borderRadius: 5,
