@@ -2,7 +2,7 @@
   "expo": {
     "name": "Data Science",
     "slug": "DataScience",
-    "version": "1.0.0",
+    "version": "1.0.1",
     "scheme": "datascience",
     "web": {
       "bundler": "metro",
